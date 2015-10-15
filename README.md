@@ -1,7 +1,7 @@
 How to use the script 
 ======================
 
-$.getScript("https://rawgit.com/Vergo777/Kissanime-LinkDownload/master/kissanime.js")
+$.getScript("https://rawgit.com/ParthKolekar/Kissanime-LinkDownload/master/kissanime.js")
 
 Description and usage instructions
 ======================
