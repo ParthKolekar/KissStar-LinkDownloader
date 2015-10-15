@@ -23,7 +23,7 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
 					for(j = 0; j < downloadQualityOptions.length; j++) {
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
-							console_log("curl -C- -L -o " + i + ".mp4 " + long_url);
+							console.log("curl -C- -L -o " + i + ".mp4 " + long_url);
 						}
 					}
                   },
