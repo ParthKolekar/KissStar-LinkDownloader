@@ -3,7 +3,7 @@ var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('
 $.ajaxSetup({async:false});
 $.getScript("http://kissanime.com/Scripts/asp.js");
 var long_url; 
-var videoQuality = prompt("Enter video quality you want to download. Example - '960x720.mp4' (without the quotes)"); 
+var videoQuality = '1280x720.mp4'
 var i; 
 var long_test = "";
 for (i = episodeLinks.length - 1 ; i >= 0; i--) {
@@ -24,7 +24,7 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
 					for(j = 0; j < downloadQualityOptions.length; j++) {
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
-							long_test += "curl -C- -L -o " + i + ".mp4 " + long_url + "&&";
+							long_test += "curl -C- -L -o " + i + ".mp4 \"" + long_url + "\" && ";
 						}
 					}
                   },
