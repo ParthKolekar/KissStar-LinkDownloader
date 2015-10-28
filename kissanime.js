@@ -1,5 +1,11 @@
 var URL = window.location.origin;
-var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href'); });
+var episodeLinks = $('table.listing a').map(
+        function(i,el) { 
+            return { 
+                'link': $(el).attr('href'),
+                'name': $(el).text().replace('\n', '')
+            }
+        });
 $.ajaxSetup({async:false});
 $.getScript("http://kissanime.com/Scripts/asp.js");
 var long_url; 
@@ -8,7 +14,7 @@ var i;
 var long_test = "";
 for (i = episodeLinks.length - 1 ; i >= 0; i--) {
 	jQuery.ajax({
-         url:    URL + episodeLinks[i], 
+         url:    URL + episodeLinks[i]['link'], 
          success: function(result) {
                     var $result = eval($(result));
 					var stringStart = result.search("var wra"); 
@@ -24,7 +30,7 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
 					for(j = 0; j < downloadQualityOptions.length; j++) {
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
-							long_test += "curl -C- -L -o " + (i + 1) + ".mp4 \"" + long_url + "\" && ";
+							long_test += "curl -C- -L -o \"" + episodeLinks[i]['name'] + "\".mp4 \"" + long_url + "\" && ";
 						}
 					}
                   },
