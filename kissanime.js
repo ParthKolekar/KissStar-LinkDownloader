@@ -3,7 +3,7 @@ var episodeLinks = $('table.listing a').map(
         function(i,el) { 
             return { 
                 'link': $(el).attr('href'),
-                'name': $(el).text().replace('\n', '')
+                'name': $(el).text().replace('\n', '').trim()
             }
         });
 $.ajaxSetup({async:false});
