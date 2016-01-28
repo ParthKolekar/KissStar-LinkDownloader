@@ -16,7 +16,7 @@ The detailed steps to use this script are as follows -
 
 ##2. Press F12 and click on the console tab 
 
-![Screenshot](https://a.pomf.se/sndhdw.png)
+You should be on the URL of the anime i.e. https://kissanime.to/Anime/XXX
 
 ##3. Paste the following into the console window and press enter 
 
