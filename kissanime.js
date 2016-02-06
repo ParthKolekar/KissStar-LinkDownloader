@@ -21,7 +21,10 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
                     var stringEnd = result.search("document.write"); 
                     var javascriptToExecute = result.substring(stringStart, stringEnd);
                     eval(javascriptToExecute);
-                    
+                   
+                    $("body").append('<div id="episode' + i + '" style="display: none;"></div>');
+                    $('#episode' + i).append(wra); 
+
                     var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
                     var j; 
                     for(j = 0; j < downloadQualityOptions.length; j++) {
