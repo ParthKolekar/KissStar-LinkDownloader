@@ -22,9 +22,11 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
                     var javascriptToExecute = result.substring(stringStart, stringEnd);
                     eval(javascriptToExecute);
                     
+                    long_test += "mkdir \"" + episodeLinks[i]['name'] + "\" && "
+
                     long_test += lstImages.map(
                             function(element, iterator, array){
-                                return "curl -C- -L -o \"" + episodeLinks[i]['name'] + "/" + iterator + "\." + element.split(".").pop() + "\" \"" + element + "\" &&"; 
+                                return "curl -C- -L -o \"" + episodeLinks[i]['name'] + "/" + iterator + "\." + element.split(".").pop() + "\" \"" + element + "\" && "; 
                             }).reduce(
                                 function(previous, current, iterator, array){
                                     return previous + " " + current; 
