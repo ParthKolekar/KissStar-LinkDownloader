@@ -2,6 +2,7 @@ How to use the script
 ======================
 
 $.getScript("https://rawgit.com/ParthKolekar/Kissanime-LinkDownload/master/kissanime.js");
+$.getScript("https://rawgit.com/ParthKolekar/Kissanime-LinkDownload/master/kissmanga.js");
 
 Description and usage instructions
 ==================================
