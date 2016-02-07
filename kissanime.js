@@ -1,4 +1,4 @@
-var URL = window.location.origin;
+var origin = window.location.origin;
 var episodeLinks = $('table.listing a').map(
         function(i,el) { 
             return { 
@@ -7,14 +7,14 @@ var episodeLinks = $('table.listing a').map(
             }
         });
 $.ajaxSetup({async:false});
-$.getScript(URL+"/Scripts/asp.js");
+$.getScript(origin+"/Scripts/asp.js");
 var long_url; 
 var videoQuality = '1280x720.mp4'
 var i; 
 var long_test = "";
 for (i = episodeLinks.length - 1 ; i >= 0; i--) {
     jQuery.ajax({
-         url:    URL + episodeLinks[i]['link'], 
+         url:    origin + episodeLinks[i]['link'], 
          success: function(result) {
                     var $result = eval($(result));
                     var stringStart = result.search("var wra"); 
