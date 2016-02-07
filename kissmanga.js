@@ -8,7 +8,6 @@ var episodeLinks = $('table.listing a').map(
         });
 $.ajaxSetup({async:false});
 $.getScript(URL+"/Scripts/asp.js");
-var long_url; 
 var i; 
 var long_test = "";
 for (i = episodeLinks.length - 1 ; i >= 0; i--) {
@@ -36,4 +35,6 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
     });       
 }
 
-console.log(long_test);
+var blob = new Blob([long_test], {type: 'text/plain'});
+var url = URL.createObjectURL(blob);
+window.open(url, "_blank");
