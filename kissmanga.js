@@ -35,6 +35,6 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
     });       
 }
 
-var blob = new Blob([long_test], {type: 'text/plain'});
+var blob = new Blob([long_test], {type: 'application/octet-stream'});
 var url = URL.createObjectURL(blob);
 window.open(url, "_blank");
