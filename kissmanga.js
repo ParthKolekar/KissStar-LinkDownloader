@@ -37,6 +37,6 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
 
 long_test += "ls";
 
-var blob = new Blob([long_test], {type: 'application/octet-stream'});
+var blob = new Blob([long_test], {type: 'application/x-sh'});
 var url = URL.createObjectURL(blob);
 window.open(url, "_blank");
