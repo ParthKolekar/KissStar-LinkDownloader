@@ -26,7 +26,7 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
                     $("body").append('<div id="episodeasdf' + i + '" style="display: none;"></div>');
                     $('#episodeasdf' + i).append(download_text); 
 
-                    var aDownload = $('#episodeasdf' + i + 'div a').map(function(i,el) { return $(el); });
+                    var aDownload = $('#episodeasdf' + i + '> div > a').map(function(i,el) { return $(el); });
 
                     var j; 
 
