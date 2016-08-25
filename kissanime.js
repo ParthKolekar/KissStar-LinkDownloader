@@ -9,7 +9,6 @@ var episodeLinks = $('table.listing a').map(
 $.ajaxSetup({async:false});
 $.getScript(origin+"/Scripts/asp.js");
 var long_url; 
-var videoQuality = '1280x720.mp4'
 var i; 
 var long_test = "";
 for (i = episodeLinks.length - 1 ; i >= 0; i--) {
@@ -17,21 +16,23 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
          url:    origin + episodeLinks[i]['link'], 
          success: function(result) {
                     var $result = eval($(result));
-                    var stringStart = result.search("var wra"); 
-                    var stringEnd = result.search("document.write"); 
-                    var javascriptToExecute = result.substring(stringStart, stringEnd);
-                    eval(javascriptToExecute);
-                   
-                    $("body").append('<div id="episode' + i + '" style="display: none;"></div>');
-                    $('#episode' + i).append(wra); 
+                    var stringStart = result.search("<div style=\"font-size: 14px; font-weight: bold; padding-top: 15px\" id=\"divDownload\">"); 
+                    var stringEnd = result.search("1280x720.mp4</a>"); 
+                    var download_text = result.substring(stringStart, stringEnd);
 
-                    var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
+                    console.log(stringStart);
+                    console.log(stringEnd);
+                   
+                    $("body").append('<div id="episodeasdf' + i + '" style="display: none;"></div>');
+                    $('#episodeasdf' + i).append(download_text); 
+
+                    var aDownload = $('#episodeasdf' + i + 'div a').map(function(i,el) { return $(el); });
+
                     var j; 
-                    for(j = 0; j < downloadQualityOptions.length; j++) {
-                        if(videoQuality === downloadQualityOptions[j].html()) {
-                            long_url = downloadQualityOptions[j].attr('href');
-                            long_test += "curl -C- -L -o \"" + episodeLinks[i]['name'] + "\".mp4 \"" + long_url + "\" && ";
-                        }
+
+                    for(j = 0; j < aDownload.length; j++) {
+                    	long_url = aDownload[j].attr('href');
+                        long_test += "curl -C- -L -o \"" + episodeLinks[i]['name'] + "\".mp4 \"" + long_url + "\" && ";
                     }
                   },
          async:   false, 
