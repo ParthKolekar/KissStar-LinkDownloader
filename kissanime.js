@@ -20,9 +20,6 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
                     var stringEnd = result.search("1280x720.mp4</a>"); 
                     var download_text = result.substring(stringStart, stringEnd);
 
-                    console.log(stringStart);
-                    console.log(stringEnd);
-                   
                     $("body").append('<div id="episodeasdf' + i + '" style="display: none;"></div>');
                     $('#episodeasdf' + i).append(download_text); 
 
