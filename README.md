@@ -1,6 +1,14 @@
 How to use the script 
 ======================
 
+
+Broken
+------
+
+The following scripts do not work any more. There has been an update to kissanime, and now openload
+and other servers are being used, which do not work as nicely.
+
+
 KissAnime Script
 ----------------
 
