@@ -8,6 +8,7 @@ var episodeLinks = $('table.listing a').map(
         });
 $.ajaxSetup({async:false});
 $.getScript(origin+"/Scripts/asp.js");
+$.getScript(origin+"/Scripts/vr.js?v=1");
 var long_url; 
 var i; 
 var long_test = "";
@@ -16,9 +17,10 @@ for (i = episodeLinks.length - 1 ; i >= 0; i--) {
          url:    origin + episodeLinks[i]['link'], 
          success: function(result) {
                     var $result = eval($(result));
-                    var stringStart = result.search("<div style=\"font-size: 14px; font-weight: bold; padding-top: 15px\" id=\"divDownload\">"); 
-                    var stringEnd = result.search("1280x720.mp4</a>"); 
-                    var download_text = result.substring(stringStart, stringEnd);
+
+                    download_text = $result.find('#divDownload')[0].children;
+
+		    console.log(download_text);
 
                     $("body").append('<div id="episodeasdf' + i + '" style="display: none;"></div>');
                     $('#episodeasdf' + i).append(download_text); 
